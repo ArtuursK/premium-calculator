@@ -50,7 +50,7 @@ public class PolicyObject {
     @Override
     public String toString() {
         return "PolicyObject{" +
-                "name='" + name + '\'' +
+                "name='" + name +
                 ", policySubObjects=" + policySubObjects +
                 '}';
     }

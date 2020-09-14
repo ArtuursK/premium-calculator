@@ -66,7 +66,7 @@ public class Policy {
     @Override
     public String toString() {
         return "Policy{" +
-                "number='" + number + '\'' +
+                "number='" + number +
                 ", status=" + status +
                 ", policyObjects=" + policyObjects +
                 '}';

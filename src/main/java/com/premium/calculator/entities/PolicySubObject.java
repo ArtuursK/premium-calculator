@@ -63,7 +63,7 @@ public class PolicySubObject {
     @Override
     public String toString() {
         return "PolicySubObject{" +
-                "name='" + name + '\'' +
+                "name='" + name +
                 ", insuredSum=" + insuredSum +
                 ", riskType=" + riskType +
                 '}';

@@ -7,8 +7,8 @@ import com.premium.calculator.entities.PolicyObject;
 import com.premium.calculator.entities.PolicySubObject;
 import com.premium.calculator.enums.PolicyStatus;
 import com.premium.calculator.enums.RiskType;
-import com.premium.calculator.exceptions.InvalidPolicyObjectException;
-import com.premium.calculator.exceptions.InvalidPolicySubObjectException;
+import com.premium.calculator.exceptions.InvalidPolicyObject;
+import com.premium.calculator.exceptions.InvalidPolicySubObject;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class PremiumCalculatorTest {
         policyObjects.add(countrysideVilla);
 
         policy.setPolicyObjects(policyObjects);
-        assertEquals(PremiumCalculator.calculate(policy), "2.28 EUR");
+        assertEquals(PremiumCalculator.calculate(policy), "2.28");
 
     }
 
@@ -75,13 +75,13 @@ public class PremiumCalculatorTest {
         policyObjects.add(countrysideVilla);
 
         policy.setPolicyObjects(policyObjects);
-        assertEquals(PremiumCalculator.calculate(policy), "17.13 EUR");
+        assertEquals(PremiumCalculator.calculate(policy), "17.13");
 
     }
 
     @Test
     public void calculatePolicy_Negative_InvalidPolicySubObject() throws Exception {
-        expectedEx.expect(InvalidPolicySubObjectException.class);
+        expectedEx.expect(InvalidPolicySubObject.class);
         expectedEx.expectMessage("Invalid insured sum in policy subobject");
 
         PolicySubObject robot = new PolicySubObject(
@@ -128,12 +128,12 @@ public class PremiumCalculatorTest {
         policyObjects.add(countrysideVilla);
 
         policy.setPolicyObjects(policyObjects);
-        assertEquals(PremiumCalculator.calculate(policy), "0.00 EUR");
+        assertEquals(PremiumCalculator.calculate(policy), "0.00");
     }
 
     @Test
     public void calculatePolicy_Negative_MissingPolicyObjects() throws Exception {
-        expectedEx.expect(InvalidPolicyObjectException.class);
+        expectedEx.expect(InvalidPolicyObject.class);
         expectedEx.expectMessage("No policy objects defined");
 
         policy.setPolicyObjects(null);
